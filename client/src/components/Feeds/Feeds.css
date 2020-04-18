@@ -1,0 +1,15 @@
+.image-container{
+    height: 400px;
+    width: 250px;
+    cursor: pointer;
+}
+
+.image-size{
+    height: 250px;
+    width: 250px;
+}
+
+.image-title{
+    font-size: 20px;
+    font-weight: 300;
+}
