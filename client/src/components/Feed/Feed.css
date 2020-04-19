@@ -34,3 +34,25 @@
     border: none;
     font-size: x-large;
 }
+
+@media only screen and (max-device-width: 480px) {
+    .image-size-view{
+        height: 300px;
+        width: 300px;
+    }
+    .image-container-view{
+        height: unset;
+        width: unset;
+    }
+}
+
+@media only screen and (max-device-width: 360px) {
+    .image-size-view{
+        height: 250px;
+        width: 250px;
+    }
+    .image-container-view{
+        height: unset;
+        width: unset;
+    }
+}
