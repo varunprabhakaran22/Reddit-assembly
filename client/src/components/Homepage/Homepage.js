@@ -3,6 +3,7 @@ import axios from 'axios'
 import Header from '../Header/Header';
 import Feeds from '../Feeds/Feeds'
 import Feed from '../Feed/Feed'
+import Search from '../Search/Search'
 import './Homepage.css'
 
 export default class Homepage extends Component {
@@ -20,7 +21,6 @@ export default class Homepage extends Component {
     componentDidMount = async()=>{
         try{
             const imageData = await axios.get('https://www.reddit.com/r/pics/.json');
-            console.log(imageData);
             const { 
                 data:{
                     data:{
@@ -32,76 +32,33 @@ export default class Homepage extends Component {
             this.setState({
                 imageData: children
             });
-            console.log(this.state.imageData);
         }
         catch(error){
             console.log(error)
         }
-
-        // this.setState({
-        // feeds: res.data.data.children.map(d => {
-        //     return {
-        //     title: d.data.title.replace(/&amp;/g, '&'),
-        //     author: d.data.author,
-        //     url: d.data.url,
-        //     thumbnail: d.data.thumbnail
-        //     };
-        // }),
-        // loading: false
-        // })
     }
 
     //Method to update the state value
-    setResult = (result) => {
+    setfilterImageData = (filterImageData) => {
         this.setState({
-            result
+            filterImageData
         }) 
     }
-    // render(){
-    //     const { data,result,loading} = this.state
-    //     let listItems = result.length > 0 ? result : data
-    //     let displayList = listItems.map(list => <Card key={list["Course Id"]} list={list}/>)
-    //     return (
-    //         <div>
-    //             <Input data={ data } setResult={this.setResult} setLoading={this.setLoading} />
-    //             <div className ="sub-menu">
-    //                 <Detail total={data.length} found={displayList.length}/>
-    //                 <Sort data ={listItems}  setResult= {this.setResult}/>
-    //             </div>
-    //             {
-    //                 loading ? <Load />
-    //                 :
-    //                 <div className="cardHolder">
-    //                     {
-    //                         displayList
-    //                     }
-    //                 </div>
-    //             }
-    //         </div> 
-    //     )
-    // }
-
-    // setShowImageDetails = (showImageDetails)=>{
-    //     console.log("show method executing intial state ")
-    //     console.log(this.state.showImageDetails)
-    //     this.setState({
-    //         showImageDetails:true
-    //     },()=>console.log(this.state.showImageDetails) )         
-    // }
 
     setShowSingleImage = (data)=>{
-        console.log("show method executing intial state ")
-        console.log(this.state.singleImage)
-        console.log(this.state.showSingleImage)
-        console.log("data from Feed ")
-        console.log(data)
         this.setState({
             showSingleImage:data,
             singleImage:true
         },()=>{
-            console.log(this.state.singleImage) 
-            console.log(this.state.showSingleImage)
+           
         })         
+    }
+
+    setShowImage = ()=>{
+        this.setState({
+            singleImage:false
+        },()=>{
+        })    
     }
 
     render() {
@@ -121,15 +78,18 @@ export default class Homepage extends Component {
                 <Header />
                 {singleImage? 
                     (
-                        <Feed data = {showSingleImage} />
+                        <Feed data = {showSingleImage}  setShowImage = {this.setShowImage}/>
                     ) 
                     :
                     (
-                        <div className = "homepage-container">
-                            <div className = "image-grid">
-                                { image }
+                        <>
+                            <Search data={ imageData } setfilterImageData={this.setfilterImageData} />
+                            <div className = "homepage-container">
+                                <div className = "image-grid">
+                                    { image }
+                                </div>
                             </div>
-                        </div>
+                        </>
                     )
                 }
             </div>
