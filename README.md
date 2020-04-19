@@ -21,7 +21,7 @@ Step2: User can select the image and see the details about those images
 
 ## To run this project locally
 Clone the project using Git Bash / Command prompt:
-git clone https://github.com/varunprabhakaran22/ByjusCourse/
+git clone https://github.com/varunprabhakaran22/Reddit-assembly.git
 
 ### Navigate inside the directory
 cd client
@@ -32,10 +32,10 @@ npm start
 
 ## Screen Shots
 ## Homepage
-![HomePage](startorial/public/homepage.png)
+![HomePage](client/public/homepage.png)
 
 ## Image details
-![Filter Result](startorial/public/searchResult.png)
+![Filter Result](client/public/detail.png)
 
 ## Search result
-![Sorting](startorial/public/sortpagee.png)
+![Sorting](client/public/search.png)
