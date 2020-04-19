@@ -32,10 +32,10 @@ npm start
 
 ## Screen Shots
 ## Homepage
-![HomePage](startorial/public/homepage.png)
+![HomePage](client/public/homepage.png)
 
 ## Image details
-![Filter Result](startorial/public/searchResult.png)
+![Filter Result](client/public/detail.png)
 
 ## Search result
-![Sorting](startorial/public/sortpagee.png)
+![Sorting](client/public/search.png)
