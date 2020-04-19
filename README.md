@@ -21,7 +21,7 @@ Step2: User can select the image and see the details about those images
 
 ## To run this project locally
 Clone the project using Git Bash / Command prompt:
-git clone https://github.com/varunprabhakaran22/ByjusCourse/
+git clone https://github.com/varunprabhakaran22/Reddit-assembly.git
 
 ### Navigate inside the directory
 cd client
