@@ -3,12 +3,17 @@ import { withRouter, Link } from 'react-router-dom'
 import '../Header/Header.css'
 
 class Header extends Component {
+
+    handlerReload = ()=>{
+        window.location.reload();
+    }
+    
     render() {
         return (
             <div>
                 <nav>
                     <ul>    
-                        <li className = "title">vReddit</li>
+                        <li className = "title" onClick = {this.handlerReload}> vReddit</li>
                     </ul>
                 </nav>
             </div>
