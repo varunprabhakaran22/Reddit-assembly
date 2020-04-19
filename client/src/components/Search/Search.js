@@ -38,10 +38,10 @@ export default class Search extends Component {
             }
             else{
                 setfilterImageData(result)
+                this.setState({
+                    backButton:true
+                })
             }
-            this.setState({
-                backButton:true
-            })
         }
     }
 
